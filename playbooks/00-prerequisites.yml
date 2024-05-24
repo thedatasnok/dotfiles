@@ -1,0 +1,9 @@
+- hosts: localhost
+  tasks:
+    - name: Install zsh
+      ansible.builtin.include_tasks:
+        file: tasks/prereq-zsh.yml
+
+    - name: Install neovim
+      ansible.builtin.include_tasks:
+        file: tasks/prereq-nvim.yml
