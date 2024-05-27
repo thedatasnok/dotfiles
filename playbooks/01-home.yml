@@ -1,13 +1,11 @@
 - hosts: localhost
+  vars_files:
+    - ../vars.yml
   tasks:
-    - name: Include main vars
-      ansible.builtin.include_vars:
-        file: vars.yml
-
     - name: Copy home folder
       ansible.builtin.copy:
         src: ../home/
         dest: "{{ home }}"
         owner: "{{ username }}"
         group: "{{ username }}"
-        mode: '0755'
+        mode: "0755"
