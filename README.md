@@ -6,6 +6,6 @@
 This project uses Ansible to install prerequisites as well as the dotfiles themselves. To install, run the following command:
 
 ```bash
-ansible-playbook 00-prerequisites.yml
-ansible-playbook 01-home.yml
+ansible-playbook playbooks/00-prerequisites.yml -K
+ansible-playbook playbooks/01-home.yml
 ```
