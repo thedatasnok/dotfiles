@@ -2,7 +2,12 @@
   vars_files:
     - ../vars.yml
   tasks:
+    - name: Set fact for macOS
+      ansible.builtin.set_fact:
+        is_macos: "{{ ansible_facts['os_family'] == 'Darwin' }}"
+
     - name: Install zsh
+      when: not is_macos
       ansible.builtin.include_tasks:
         file: tasks/prereq-zsh.yml
 
