@@ -14,3 +14,19 @@
     - name: Install neovim
       ansible.builtin.include_tasks:
         file: tasks/prereq-nvim.yml
+
+    - name: Install Node Version Manager (nvm)
+      ansible.builtin.include_tasks:
+        file: tasks/prereq-nvm.yml
+
+    - name: Install Homebrew packages
+      when: is_macos
+      community.general.homebrew:
+        name: "{{ brew_packages }}"
+        state: present
+
+    - name: Install Homebrew Cask packages
+      when: is_macos
+      community.general.homebrew_cask:
+        name: "{{ brew_cask_packages }}"
+        state: present
