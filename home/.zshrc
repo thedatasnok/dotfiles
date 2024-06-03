@@ -1,3 +1,5 @@
+LC_ALL=C.UTF-8
+
 export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 export ZSH=$HOME/.oh-my-zsh
 
@@ -7,6 +9,7 @@ plugins=(git)
 source $ZSH/oh-my-zsh.sh
 
 export PATH="$PATH:/opt/nvim-linux64/bin"
+export PATH="$PATH:/opt/nvim-macos-arm64/bin"
 
 alias xcopy="xclip -sel clip"
 

@@ -12,16 +12,26 @@
         file: tasks/prereq-zsh.yml
 
     - name: Install ohmyzsh
-      ansible.builtin.include.tasks:
+      ansible.builtin.include_tasks:
         file: tasks/prereq-ohmyzsh.yml
 
-    - name: Install neovim
+    - name: Install neovim (Linux)
+      when: not is_macos
       ansible.builtin.include_tasks:
         file: tasks/prereq-nvim.yml
+
+    - name: Install neovim (MacOS)
+      when: is_macos
+      ansible.builtin.include_tasks:
+        file: tasks/prereq-nvim-macos.yml
 
     - name: Install Node Version Manager (nvm)
       ansible.builtin.include_tasks:
         file: tasks/prereq-nvm.yml
+
+    - name: Install SDKMAN!
+      ansible.builtin.include_tasks:
+        file: tasks/prereq-sdkman.yml
 
     - name: Install Homebrew packages
       when: is_macos

@@ -1,5 +1,10 @@
 ---
-- name: Install neovim
-  become: true
-  ansible.builtin.shell: |
-    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+- name: Download nvm install script
+  ansible.builtin.get_url:
+    url: https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh
+    dest: /tmp/install_nvm.sh
+
+- name: Run nvm install script
+  command: bash /tmp/install_nvm.sh
+  register: nvm_result
+  failed_when: "'FAILED' in nvm_result.stderr"
