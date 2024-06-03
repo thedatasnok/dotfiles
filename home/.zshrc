@@ -10,6 +10,7 @@ source $ZSH/oh-my-zsh.sh
 
 export PATH="$PATH:/opt/nvim-linux64/bin"
 export PATH="$PATH:/opt/nvim-macos-arm64/bin"
+export PATH="$PATH:/opt/homebrew/bin"
 
 alias xcopy="xclip -sel clip"
 
