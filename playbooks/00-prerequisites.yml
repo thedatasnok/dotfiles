@@ -11,6 +11,10 @@
       ansible.builtin.include_tasks:
         file: tasks/prereq-zsh.yml
 
+    - name: Install ohmyzsh
+      ansible.builtin.include.tasks:
+        file: tasks/prereq-ohmyzsh.yml
+
     - name: Install neovim
       ansible.builtin.include_tasks:
         file: tasks/prereq-nvim.yml

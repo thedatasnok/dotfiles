@@ -14,3 +14,4 @@ brew_packages:
   - docker-compose
   - git
   - jq
+  - tmux
